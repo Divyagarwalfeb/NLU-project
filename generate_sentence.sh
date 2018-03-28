@@ -1,0 +1,1 @@
+python sentence_gen_word.py
