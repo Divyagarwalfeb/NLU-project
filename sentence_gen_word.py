@@ -47,7 +47,7 @@ def sentence_generation(model, tokenizer, max_length, seed_text, n_words):
     print(in_text)
     
 #Read File
-file = open("austen-emma_austen-persuasion_austen-sense.txt", 'r')
+file = open("./NLU-project/austen-emma_austen-persuasion_austen-sense.txt", 'r')
 data = file.read()
 file.close()
 
@@ -60,8 +60,8 @@ tokenizer,X_train, Y_train, vocab_size, max_length = preprocessing_tokens(train_
 Y_train = to_categorical(Y_train, num_classes=vocab_size)
 
 #Load Model
-model = load_model('model3_word.h5')
-tokenizer = load(open('tokenizer.pkl', 'rb'))
+model = load_model('./NLU-project/model_word.h5')
+tokenizer = load(open('./NLU-project/tokenizer.pkl', 'rb'))
 max_length=2;
 
 #Sentence generation

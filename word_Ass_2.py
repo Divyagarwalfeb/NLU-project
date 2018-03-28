@@ -43,7 +43,7 @@ def preprocessing_tokens(data,tokens):
     return (tokenizer,X,Y, vocab_size, max_length)
 
 #Read File
-file = open("/home/clabuser/AAkash/NLU_A2/dataset/austen-emma-persuasion-sense.txt", 'r')
+file = open("./NLU-project/austen-emma-persuasion-sense.txt", 'r')
 data = file.read()
 file.close()
 
@@ -64,12 +64,12 @@ Y_train = to_categorical(Y_train, num_classes=vocab_size)
 model = lstm(X_train,y_train, vocab_size, max_length)
 
 #Saving model
-model.save('model_word.h5')
-dump(tokenizer,open('tokenizer.pkl','wb'))
+model.save('./NLU-project/model_word.h5')
+dump(tokenizer,open('./NLU-project/tokenizer.pkl','wb'))
 
 #loading model
-model = load_model('/home/clabuser/AAkash/NLU_A2/model_word.h5')
-tokenizer = load(open('/home/clabuser/AAkash/NLU_A2/tokenizer.pkl', 'rb'))
+model = load_model('./NLU-project/model_word.h5')
+tokenizer = load(open('./NLU-project/tokenizer.pkl', 'rb'))
 
 #Testing
 tokenizer_test,X_test,Y_test, vocab_size_test, max_length_test = preprocessing(data,test_tokens)

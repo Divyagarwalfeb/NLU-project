@@ -35,7 +35,7 @@ def lstm_model_generation(X, Y):
 
 
 #Read file
-filename = "austen-sense.txt"
+filename = "./NLU-project/austen-sense.txt"
 raw_text = open(filename).read()
 raw_text = raw_text.lower()
 raw_text = raw_text.replace('--', ' ')
@@ -58,7 +58,7 @@ model = lstm_model_generation(X,Y)
 model.save('model_char.h5')
 
 #loading the model
-model = load_model('model_char.h5')
+model = load_model('./NLU-project/model_char.h5')
 
 #testing the model
 chars_test = sorted(list(set(raw_text_test)))
